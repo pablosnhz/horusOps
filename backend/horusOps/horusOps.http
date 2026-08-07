@@ -1,0 +1,6 @@
+@horusOps_HostAddress = http://localhost:5014
+
+GET {{horusOps_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
