@@ -10,7 +10,7 @@ namespace horusOps.Entities;
 {
     [Key]
     [Column("ID_EMPLEADO")]
-    public int idEmpleado { get; set; }
+    public int IdEmpleado { get; set; }
 
     [Column("NOMBRE_EMPLEADO")]
     public string NombreEmpleado { get; set; } = string.Empty;
@@ -24,9 +24,23 @@ namespace horusOps.Entities;
     [Column("EMAIL_EMPLEADO")]
     public string EmailEmpleado { get; set;  } = string.Empty;
 
+    [Column("TELEFONO_EMPLEADO")]
+    public string? TelefonoEmpleado { get; set; }
+
+    [Column("FECHA_INGRESO")]
+    public DateTime FechaIngreso { get; set; }
+
     [Column("ID_SUCURSAL")]
     public int IdSucursal { get; set; }
 
     [Column("ACTIVO")]
     public bool Activo { get; set; }
+
+    [Column("FECHA_ALTA")]
+    public DateTime FechaAlta { get; set; }
+
+    [ForeignKey(nameof(IdSucursal))]
+    public Sucursal Sucursal { get; set; } = null!;
+
+    public ICollection<Venta> Ventas { get; set; } = new List<Venta>();
 }
