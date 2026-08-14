@@ -11,8 +11,10 @@ builder.Services.AddDbContext<HorusOpsDbContext>(options =>
         builder.Configuration.GetConnectionString("HorusOpsConnection")
 ));
 
-// builder.Services.AddAutoMapper(typeof(MappingProfile));
-builder.Services.AddAutoMapper(typeof(EmpleadoProfile));
+builder.Services.AddAutoMapper(
+    typeof(EmpleadoProfile),
+    typeof(SucursalProfile)
+);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

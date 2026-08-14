@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace horusOps.Entities
 {
     [Table("SUCURSALES")]
-    public class Sucursales
+    public class Sucursal
     {
         [Key]
         [Column("ID_SUCURSAL")]
@@ -30,8 +30,5 @@ namespace horusOps.Entities
 
         public ICollection<Venta> Ventas { get; set; }
                 = new List<Venta>();
-
-        [ForeignKey(nameof(IdSucursal))]
-        public Sucursales Sucursal { get; set; } = null!;
     }
 }
