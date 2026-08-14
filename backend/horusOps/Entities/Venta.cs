@@ -50,7 +50,7 @@ namespace horusOps.Entities
         public Empleado Empleado { get; set; } = null!;
 
         [ForeignKey(nameof(idSucursal))]
-        public Sucursales Sucursal { get; set; } = null!;
+        public Sucursal Sucursal { get; set; } = null!;
 
         public ICollection<DetalleVentas> Detalles { get; set; }
                 = new List<DetalleVentas>();

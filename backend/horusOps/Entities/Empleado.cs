@@ -40,7 +40,7 @@ namespace horusOps.Entities;
     public DateTime FechaAlta { get; set; }
 
     [ForeignKey(nameof(IdSucursal))]
-    public Sucursales Sucursal { get; set; } = null!;
+    public Sucursal Sucursal { get; set; } = null!;
 
     public ICollection<Venta> Ventas { get; set; } = new List<Venta>();
 }
