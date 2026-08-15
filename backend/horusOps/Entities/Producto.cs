@@ -8,7 +8,7 @@ namespace horusOps.Entities
     {
         [Key]
         [Column("ID_PRODUCTO")]
-        public int idProducto { get; set; }
+        public int IdProducto { get; set; }
 
         [Required]
         [Column("NOMBRE_PRODUCTO")]
