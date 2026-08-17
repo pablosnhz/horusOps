@@ -13,5 +13,6 @@ namespace horusOps.Context
         public DbSet<Empleado> Empleados => Set<Empleado>();
         public DbSet<Sucursal> Sucursales => Set<Sucursal>();
         public DbSet<Producto> Productos => Set<Producto>();
+        public DbSet<Usuario> Usuarios => Set<Usuario>();
     }
 }

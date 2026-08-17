@@ -36,7 +36,7 @@ namespace horusOps.Controllers
         public async Task<ActionResult<ProductoDto>> ObtenerProducto(int id)
         {
             var producto = await _context.Productos
-                .FirstOrDefaultAsync(p => p.idProducto == id);
+                .FirstOrDefaultAsync(p => p.IdProducto == id);
 
             if (producto == null)
             {
