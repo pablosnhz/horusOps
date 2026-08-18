@@ -20,17 +20,16 @@ namespace horusOps.Controllers
             _mapper = mapper;
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<VentaDto>>> ObtenerVentas()
-        //{
-        //    var ventas = await _context.Ventas
-        //        .Where(v => v.Detalles)
-        //        .toListAsync();
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<VentaDto>>> ObtenerVentas()
+        {
+            var ventas = await _context.Ventas
+                .ToListAsync();
 
-        //    var ventasDto = _mapper.Map<IEnumerable<VentaDto>>(ventas);
+            var ventasDto = _mapper.Map<IEnumerable<VentaDto>>(ventas);
 
-        //    return Ok(ventasDto);
-        //}
+            return Ok(ventasDto);
+        }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<VentaDto>> ObtenerVenta(int id)
@@ -49,7 +48,7 @@ namespace horusOps.Controllers
         [HttpPost]
         public async Task<ActionResult<CrearVentaDto>> CrearVenta(CrearVentaDto dto)
         {
-            var venta = _mapper.Map<VentaDto>(dto);
+            var venta = _mapper.Map<Venta>(dto);
 
             venta.FechaVenta = DateTime.Now;
 
