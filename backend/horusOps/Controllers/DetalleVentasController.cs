@@ -46,7 +46,7 @@ namespace horusOps.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CrearDetalleVentaDto>> CrearDetalleVenta(CrearDetalleVentaDto dto)
+        public async Task<ActionResult<DetalleVentaDto>> CrearDetalleVenta(CrearDetalleVentaDto dto)
         {
             var detalleVenta = _mapper.Map<DetalleVentas>(dto);
 
