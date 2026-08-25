@@ -8,7 +8,7 @@ namespace horusOps.Entities
     {
         [Key]
         [Column("ID_PROCESO")]
-        public int idProceso { get; set; }
+        public int IdProceso { get; set; }
 
         [Column("NOMBRE_PROCESO")]
         public string NombreProceso { get; set; } = string.Empty;
