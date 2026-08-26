@@ -19,5 +19,6 @@ namespace horusOps.Context
         public DbSet<Cliente> Cliente => Set<Cliente>();
         public DbSet<Proceso> Proceso => Set<Proceso>();
         public DbSet<EjecucionProceso> EjecucionProceso => Set<EjecucionProceso>();
+        public DbSet<LogProceso> LogProceso => Set<LogProceso>();
     }
 }

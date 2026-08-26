@@ -6,10 +6,10 @@ namespace horusOps.Entities
     public class LogProceso
     {
         [Column("ID_LOG")]
-        public long idLog {  get; set; }
+        public long IdLog {  get; set; }
 
         [Column("ID_EJECUCION")]
-        public long idEjecucion { get; set; }
+        public long IdEjecucion { get; set; }
 
         [Column("FECHA_LOG")]
         public DateTime FechaLog { get; set; }
