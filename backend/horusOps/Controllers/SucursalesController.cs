@@ -88,14 +88,14 @@ namespace horusOps.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarSucursal(int id)
         {
-            var sucural = await _context.Sucursales.FindAsync(id);
+            var sucursal = await _context.Sucursales.FindAsync(id);
 
-            if (sucural == null)
+            if (sucursal == null)
             {
                 return NotFound();
             }
 
-            sucural.Activo = false;
+            sucursal.Activo = false;
 
             await _context.SaveChangesAsync();
             return NoContent();
