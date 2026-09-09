@@ -29,7 +29,7 @@ namespace horusOps.Entities
         public string NombreCliente { get; set; } = string.Empty;
 
         [Column("DIRECCION_ENVIO_CLIENTE")]
-        public string DireccionEnvioCliente { get; set; }
+        public string? DireccionEnvioCliente { get; set; }
 
         [Column("NOMBRE_EMPLEADO")]
         public string NombreEmpleado { get; set; } = string.Empty;

@@ -46,7 +46,7 @@ namespace horusOps.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CrearVentaDto>> CrearVenta(CrearVentaDto dto)
+        public async Task<ActionResult<VentaDto>> CrearVenta(CrearVentaDto dto)
         {
             var venta = _mapper.Map<Venta>(dto);
 
@@ -55,7 +55,7 @@ namespace horusOps.Controllers
             _context.Add(venta);
             await _context.SaveChangesAsync();
 
-            var ventaDto = _mapper.Map<Venta>(venta);
+            var ventaDto = _mapper.Map<VentaDto>(venta);
 
             return CreatedAtAction(
                     nameof(ObtenerVenta),

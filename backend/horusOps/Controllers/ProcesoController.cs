@@ -2,6 +2,7 @@
 using horusOps.Context;
 using horusOps.Dtos.Proceso;
 using horusOps.Entities;
+using horusOps.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,11 +14,21 @@ namespace horusOps.Controllers
     {
         private readonly HorusOpsDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IProcesoService _procesoService;
 
-        public ProcesoController(HorusOpsDbContext context, IMapper mapper)
+        public ProcesoController(HorusOpsDbContext context, IMapper mapper, IProcesoService procesoService)
         {
             _context = context;
             _mapper = mapper;
+            _procesoService = procesoService;
+        }
+
+        [HttpPost("{id}/ejecutar")]
+        public async Task<IActionResult> EjecutarProceso(int id)
+        {
+            await _procesoService.EjecutarProceso(id);
+
+            return Ok();
         }
 
         [HttpGet]
