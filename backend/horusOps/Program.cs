@@ -1,5 +1,6 @@
 using horusOps.Context;
-using horusOps.Mapping;
+using horusOps.Services;
+using horusOps.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,8 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IProcesoService, ProcesoService>();
 
 var app = builder.Build();
 
