@@ -18,6 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProcesoService, ProcesoService>();
+builder.Services.AddScoped<VentaService>();
 
 var app = builder.Build();
 
