@@ -2,6 +2,7 @@
 using horusOps.Context;
 using horusOps.Dtos.Venta;
 using horusOps.Entities;
+using horusOps.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,11 +14,13 @@ namespace horusOps.Controllers
     {
         private readonly HorusOpsDbContext _context;
         private readonly IMapper _mapper;
+        private readonly VentaService _ventaService;
 
-        public VentasController(HorusOpsDbContext context, IMapper mapper)
+        public VentasController(HorusOpsDbContext context, IMapper mapper, VentaService ventaService)
         {
             _context = context;
             _mapper = mapper;
+            _ventaService = ventaService;
         }
 
         [HttpGet]
@@ -48,18 +51,11 @@ namespace horusOps.Controllers
         [HttpPost]
         public async Task<ActionResult<VentaDto>> CrearVenta(CrearVentaDto dto)
         {
-            var venta = _mapper.Map<Venta>(dto);
-
-            venta.FechaVenta = DateTime.Now;
-
-            _context.Add(venta);
-            await _context.SaveChangesAsync();
-
-            var ventaDto = _mapper.Map<VentaDto>(venta);
+            var ventaDto = await _ventaService.CrearVentaAsync(dto);
 
             return CreatedAtAction(
                     nameof(ObtenerVenta),
-                    new { id = venta.IdVenta },
+                    new { id = ventaDto.IdVenta },
                     ventaDto
                 );
         }
