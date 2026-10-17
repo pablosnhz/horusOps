@@ -2,6 +2,6 @@
 {
     public interface IProcesoService
     {
-        Task EjecutarProceso(int IdProceso);
+        Task EjecutarProcesoAsync(int IdProceso);
     }
 }
