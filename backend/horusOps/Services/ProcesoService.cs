@@ -1,4 +1,5 @@
 ﻿using horusOps.Context;
+using horusOps.Dtos.Proceso;
 using horusOps.Entities;
 using horusOps.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,7 @@ namespace horusOps.Services
             _context = context;
         }
 
-        public async Task EjecutarProcesoAsync(int IdProceso) 
+        public async Task<ResultadoEjecucionDto> EjecutarProcesoAsync(int IdProceso) 
         {
             var proceso = await _context.Proceso
                 .FirstOrDefaultAsync(p => 
@@ -90,10 +91,18 @@ namespace horusOps.Services
 
             ejecucion.EstadoEjecucion =
                 ejecucion.CantidadErrores > 0
-                    ? "ERROR"
+                    ? "COMPLETADO_CON_ERRORES"
                     : "COMPLETADO";
 
             await _context.SaveChangesAsync();
+
+            return new ResultadoEjecucionDto
+            {
+                IdEjecucion = ejecucion.IdEjecucion,
+                EstadoEjecucion = ejecucion.EstadoEjecucion,
+                RegistrosProcesados = ejecucion.RegistrosProcesados,
+                CantidadErrores = ejecucion.CantidadErrores,
+            };
         }
     }
 }

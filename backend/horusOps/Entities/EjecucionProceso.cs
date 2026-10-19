@@ -19,8 +19,9 @@ namespace horusOps.Entities
         [Column("FECHA_FIN")]
         public DateTime? FechaFin { get; set; }
 
-        [Column("ESTADO_EJECUCION")]
-        public string EstadoEjecucion { get; set; }
+        [MaxLength(30)]
+        [Column("ESTADO_EJECUCION", TypeName = "varchar(30)")]
+        public string EstadoEjecucion { get; set; } = string.Empty;
 
         [Column("REGISTROS_PROCESADOS")]
         public int RegistrosProcesados { get; set; }
