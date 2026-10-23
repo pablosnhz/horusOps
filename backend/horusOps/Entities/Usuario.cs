@@ -11,19 +11,19 @@ namespace horusOps.Entities
         public int IdUsuario { get; set; }
 
         [Required]
-        [Column("NOMBRE_USUARIO")]
         [StringLength(50)]
-        public string NombreUsuario { get; set; }
+        [Column("NOMBRE_USUARIO", TypeName = "varchar(50)")]
+        public string NombreUsuario { get; set; } = string.Empty;
 
         [Required]
-        [Column("CLAVE_HASH")]
         [StringLength(500)]
-        public string ClaveHash { get; set; }
+        [Column("CLAVE_HASH", TypeName = "varchar(500)")]
+        public string ClaveHash { get; set; } = string.Empty;
 
         [Required]
-        [Column("ROL_USUARIO")]
-        [StringLength (30)]
-        public string RolUsuario { get; set; }
+        [StringLength(30)]
+        [Column("ROL_USUARIO", TypeName = "varchar(30)")]
+        public string RolUsuario { get; set; } = string.Empty;
 
         [Column("ID_EMPLEADO")]
         public int? IdEmpleado { get; set; }
@@ -31,7 +31,7 @@ namespace horusOps.Entities
         [Column("ACTIVO")]
         public bool Activo { get; set; }
 
-        [Column("FECHA_ALTA")]
+        [Column("FECHA_ALTA", TypeName = "datetime")]
         public DateTime FechaAlta { get; set; }
 
         [ForeignKey(nameof(IdEmpleado))]

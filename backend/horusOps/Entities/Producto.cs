@@ -11,10 +11,11 @@ namespace horusOps.Entities
         public int IdProducto { get; set; }
 
         [Required]
-        [Column("NOMBRE_PRODUCTO")]
+        [MaxLength(100)]
+        [Column("NOMBRE_PRODUCTO", TypeName = "varchar(100)")]
         public string NombreProducto { get; set; } = string.Empty;
 
-        [Column("PRECIO_PRODUCTO")]
+        [Column("PRECIO_PRODUCTO", TypeName = "decimal(10,2)")]
         public decimal PrecioProducto { get; set; }
 
         [Column("ACTIVO")]

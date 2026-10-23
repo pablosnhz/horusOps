@@ -16,13 +16,14 @@ namespace horusOps.Entities
         [Column("ID_PRODUCTO")]
         public int IdProducto { get; set; }
 
-        [Column("PRODUCTO")]
+        [MaxLength(100)]
+        [Column("PRODUCTO", TypeName = "varchar(100)")]
         public string Producto { get; set; } = string.Empty;
 
         [Column("CANTIDAD")]
         public int Cantidad { get; set; }
 
-        [Column("PRECIO_UNITARIO")]
+        [Column("PRECIO_UNITARIO", TypeName = "decimal(10,2)")]
         public decimal PrecioUnitario { get; set; }
 
         [ForeignKey(nameof(IdVenta))]

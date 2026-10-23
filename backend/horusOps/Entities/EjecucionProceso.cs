@@ -13,10 +13,10 @@ namespace horusOps.Entities
         [Column("ID_PROCESO")]
         public int IdProceso { get; set; }
 
-        [Column("FECHA_INICIO")]
+        [Column("FECHA_INICIO", TypeName = "datetime")]
         public DateTime FechaInicio { get; set; }
 
-        [Column("FECHA_FIN")]
+        [Column("FECHA_FIN", TypeName = "datetime")]
         public DateTime? FechaFin { get; set; }
 
         [MaxLength(30)]

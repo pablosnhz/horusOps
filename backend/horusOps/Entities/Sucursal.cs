@@ -8,27 +8,32 @@ namespace horusOps.Entities
     {
         [Key]
         [Column("ID_SUCURSAL")]
-        public int IdSucursal {  get; set; }
+        public int IdSucursal { get; set; }
 
-        [Column("NOMBRE_SUCURSAL")]
+        [Required]
+        [MaxLength(100)]
+        [Column("NOMBRE_SUCURSAL", TypeName = "varchar(100)")]
         public string NombreSucursal { get; set; } = string.Empty;
 
-        [Column("DIRECCION_SUCURSAL")]
+        [Required]
+        [MaxLength(200)]
+        [Column("DIRECCION_SUCURSAL", TypeName = "varchar(200)")]
         public string DireccionSucursal { get; set; } = string.Empty;
 
-        [Column("CIUDAD")]
-        public string? Ciudad {  get; set; }
+        [MaxLength(100)]
+        [Column("CIUDAD", TypeName = "varchar(100)")]
+        public string? Ciudad { get; set; }
 
         [Column("ACTIVO")]
-        public bool Activo {  get; set; }
-        
-        [Column("FECHA_ALTA")]
-        public DateTime FechaAlta {  get; set; }
+        public bool Activo { get; set; }
+
+        [Column("FECHA_ALTA", TypeName = "datetime")]
+        public DateTime FechaAlta { get; set; }
 
         public ICollection<Empleado> Empleados { get; set; }
-                = new List<Empleado>();
+            = new List<Empleado>();
 
         public ICollection<Venta> Ventas { get; set; }
-                = new List<Venta>();
+            = new List<Venta>();
     }
 }
