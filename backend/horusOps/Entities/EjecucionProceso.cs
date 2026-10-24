@@ -13,14 +13,15 @@ namespace horusOps.Entities
         [Column("ID_PROCESO")]
         public int IdProceso { get; set; }
 
-        [Column("FECHA_INICIO")]
+        [Column("FECHA_INICIO", TypeName = "datetime")]
         public DateTime FechaInicio { get; set; }
 
-        [Column("FECHA_FIN")]
+        [Column("FECHA_FIN", TypeName = "datetime")]
         public DateTime? FechaFin { get; set; }
 
-        [Column("ESTADO_EJECUCION")]
-        public string EstadoEjecucion { get; set; }
+        [MaxLength(30)]
+        [Column("ESTADO_EJECUCION", TypeName = "varchar(30)")]
+        public string EstadoEjecucion { get; set; } = string.Empty;
 
         [Column("REGISTROS_PROCESADOS")]
         public int RegistrosProcesados { get; set; }

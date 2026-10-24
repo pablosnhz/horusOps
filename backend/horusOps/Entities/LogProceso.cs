@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace horusOps.Entities
@@ -8,21 +9,23 @@ namespace horusOps.Entities
     {
         [Key]
         [Column("ID_LOG")]
-        public long IdLog {  get; set; }
+        public long IdLog { get; set; }
 
         [Column("ID_EJECUCION")]
         public long IdEjecucion { get; set; }
 
-        [Column("FECHA_LOG")]
+        [Column("FECHA_LOG", TypeName = "datetime")]
         public DateTime FechaLog { get; set; }
 
-        [Column("NIVEL_LOG")]
+        [MaxLength(20)]
+        [Column("NIVEL_LOG", TypeName = "varchar(20)")]
         public string NivelLog { get; set; } = string.Empty;
 
-        [Column("MENSAJE_LOG")]
+        [MaxLength(2000)]
+        [Column("MENSAJE_LOG", TypeName = "varchar(2000)")]
         public string MensajeLog { get; set; } = string.Empty;
 
-        [Column("DETALLE_ERROR")]
+        [Column("DETALLE_ERROR", TypeName = "varchar(max)")]
         public string? DetalleError { get; set; }
 
         [ForeignKey(nameof(IdEjecucion))]

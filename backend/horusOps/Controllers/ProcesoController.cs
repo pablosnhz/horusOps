@@ -26,9 +26,10 @@ namespace horusOps.Controllers
         [HttpPost("{id}/ejecutar")]
         public async Task<IActionResult> EjecutarProceso(int id)
         {
-            await _procesoService.EjecutarProceso(id);
+            var resultado = 
+            await _procesoService.EjecutarProcesoAsync(id);
 
-            return Ok();
+            return Ok(resultado);
         }
 
         [HttpGet]

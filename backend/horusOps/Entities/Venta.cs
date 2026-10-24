@@ -10,7 +10,7 @@ namespace horusOps.Entities
         [Column("ID_VENTA")]
         public int IdVenta { get; set; }
 
-        [Column("FECHA_VENTA")]
+        [Column("FECHA_VENTA", TypeName = "datetime")]
         public DateTime FechaVenta { get; set; }
 
         [Column("ID_CLIENTE")]
@@ -22,25 +22,31 @@ namespace horusOps.Entities
         [Column("ID_SUCURSAL")]
         public int idSucursal {  get; set; }
 
-        [Column("DNI_CLIENTE")]
+        [Column("DNI_CLIENTE", TypeName = "varchar(20)")]
+        [MaxLength(20)]
         public string DniCliente { get; set; } = string.Empty;
 
-        [Column("NOMBRE_CLIENTE")]
+        [Column("NOMBRE_CLIENTE", TypeName = "varchar(150)")]
+        [MaxLength(150)]
         public string NombreCliente { get; set; } = string.Empty;
 
-        [Column("DIRECCION_ENVIO_CLIENTE")]
+        [Column("DIRECCION_ENVIO_CLIENTE", TypeName = "varchar(200)")]
+        [MaxLength(200)]
         public string? DireccionEnvioCliente { get; set; }
 
-        [Column("NOMBRE_EMPLEADO")]
+        [Column("NOMBRE_EMPLEADO", TypeName = "varchar(100)")]
+        [MaxLength(100)]
         public string NombreEmpleado { get; set; } = string.Empty;
 
-        [Column("NOMBRE_SUCURSAL_VENTA")]
+        [Column("NOMBRE_SUCURSAL_VENTA", TypeName = "varchar(100)")]
+        [MaxLength(100)]
         public string NombreSucursalVenta { get; set; } = string.Empty;
 
-        [Column("DIRECCION_SUCURSAL_VENTA")]
+        [Column("DIRECCION_SUCURSAL_VENTA", TypeName = "varchar(200)")]
+        [MaxLength(200)]
         public string DireccionSucursalVenta { get; set; } = string.Empty;
 
-        [Column("IMPORTE_TOTAL")]
+        [Column("IMPORTE_TOTAL", TypeName = "decimal(10,2)")]
         public decimal ImporteTotal { get; set; }
 
         [ForeignKey(nameof(idCliente))]
